@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ka">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>რესტორნის მენიუ</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ნავიგაცია და კალათის ღილაკი -->
+    <header class="main-header">
+      <div class="container header-flex">
+        <h1 class="logo">Gourmet <span>Restaurant</span></h1>
+        <button id="cart-btn" class="cart-btn">
+          🛒 კალათა (<span id="cart-count">0</span>)
+        </button>
+      </div>
+    </header>
+
+    <!-- კალათის მოდალური ფანჯარა -->
+    <div id="cart-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>ჩემი კალათა</h2>
+          <button id="close-cart" class="close-btn">✕</button>
+        </div>
+        <div id="cart-items-list" class="cart-items-list">
+          <!-- კალათის ელემენტები ეხლოთ ჩატვირთება აქ -->
+        </div>
+        <div class="modal-footer">
+          <div class="cart-summary">
+            <strong>სულ:</strong>
+            <span id="cart-total">0 ₾</span>
+          </div>
+          <button class="btn btn-primary" onclick="checkout()">შეკვეთა</button>
+        </div>
+      </div>
+    </div>
+
+    <main class="container main-layout">
+      <!-- გვერდითა პანელი: ფილტრები -->
+      <aside class="sidebar">
+        <h3>ფილტრაცია</h3>
+
+        <!-- კატეგორიები (დინამიკურად შეივსება) -->
+        <div class="filter-group">
+          <h4>კატეგორიები</h4>
+          <div id="categories-container">
+            <label class="radio-label">
+              <input type="radio" name="category" value="all" checked />
+              ყველაფერი
+            </label>
+          </div>
+        </div>
+
+        <!-- დამატებითი ფილტრები -->
+        <div class="filter-group">
+          <h4>სპეციფიკაცია</h4>
+          <label class="checkbox-label">
+            <input type="checkbox" id="filter-vegetarian" /> 🥦 ვეგეტარიანული
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" id="filter-nuts" /> 🥜 თხილის გარეშე
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" id="filter-spicy" /> 🌶️ მხოლოდ ცხარე
+          </label>
+        </div>
+
+        <button id="apply-filters" class="btn btn-primary">
+          ფილტრის გამოყენება
+        </button>
+      </aside>
+
+      <!-- ძირითადი კონტენტი: პროდუქტები -->
+      <section class="products-section">
+        <h2>ჩვენი მენიუ</h2>
+        <div id="products-grid" class="products-grid">
+          <!-- პროდუქტების ბარათები ჩაიწერება დინამიკურად JS-იდან -->
+          <p class="loading-text">მენიუ იტვირთება...</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
